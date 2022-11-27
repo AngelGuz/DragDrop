@@ -1,6 +1,9 @@
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
+import { Heading, Container, SimpleGrid } from '@chakra-ui/react'
 import { useApp } from "./hook/useApp";
 import './App.css'
+import { Column } from "./components/Column";
+import { ColumnType } from "./utils/models";
 
 
 function App() {
@@ -8,33 +11,22 @@ function App() {
   const { tasks, onDragEndResult } = useApp();
 
   return (
-    <DragDropContext onDragEnd={onDragEndResult}>
-      <div className="App">
-        <h1>Estudiar</h1>
-        <Droppable droppableId="tasks">
-          {(droppableProvided) => (
-            <ul 
-              {...droppableProvided.droppableProps}
-              ref={droppableProvided.innerRef}
-              className="task-container"
-            >
-              {tasks.map( (task, index) => (
-                  <Draggable key={task.id} draggableId={task.id} index={index}>
-                    {(provided) => (
-                      <li {...provided.draggableProps} ref={provided.innerRef} 
-                        {...provided.dragHandleProps} className="task-item"
-                      >
-                        {task.text}
-                      </li>
-                    )}
-                  </Draggable>
-                ))}
-              {droppableProvided.placeholder}
-            </ul>
-          )}
-        </Droppable>
-      </div>
-    </DragDropContext>
+    <>
+      <Heading fontSize={{base: '4xl', sm: '5xl', md: '6xl'}} fontWeight="bold"
+        textAlign="center" bgGradient="linear(to-l, #7928CA, #FF0080)"
+        bgClip="text" mt={4}
+      >
+        Drag and Drop | Practica React
+      </Heading>
+      <Container maxWidth="container.lg" px={4} py={10}>
+        <SimpleGrid columns={{base: 1, md: 4}} spacing={{base: 16, md: 4}}>
+          <Column column={ColumnType.TO_DO} />
+          <Column column={ColumnType.IN_PROGRESS} />
+          <Column column={ColumnType.BLOCKED} />
+          <Column column={ColumnType.COMPLETED} />
+        </SimpleGrid>
+      </Container>
+    </>
   );
 }
 
