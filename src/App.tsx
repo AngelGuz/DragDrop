@@ -1,6 +1,4 @@
-import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 import { Heading, Container, SimpleGrid } from '@chakra-ui/react'
-import { useApp } from "./hook/useApp";
 import './App.css'
 import { Column } from "./components/Column";
 import { ColumnType } from "./utils/models";
@@ -11,15 +9,15 @@ import { DarkModeIconButton } from "./components/DarkModeIconButton";
 
 function App() {
   
-  const { tasks, onDragEndResult } = useApp();
+  //const { tasks, onDragEndResult } = useApp();
 
   return (
     <>
-      <Heading fontSize={{base: '4xl', sm: '5xl', md: '6xl'}} fontWeight="bold"
+      <Heading fontSize={{base: '4xl', sm: '5xl', md: '6xl'}} fontWeight="bold" lineHeight={1.5}
         textAlign="center" bgGradient="linear(to-l, #7928CA, #FF0080)"
         bgClip="text" mt={4}
       >
-        Drag and Drop | Practica React
+        Drag and Drop
       </Heading>
       <DarkModeIconButton position="absolute" top={0} right={2} />
       <Container maxWidth="container.lg" px={4} py={10}>
