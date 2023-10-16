@@ -37,3 +37,7 @@ Open http://localhost:3000 to view it in the browser.
 
 > [!Note]
 > This is only an example project to test and practice.
+
+<p align="center">
+    <img src="footer.gif"/>
+</p>
