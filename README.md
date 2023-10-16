@@ -1,6 +1,6 @@
 # Drag & Drop | React
 
-![Preview Image](README.png =200x200)
+![Preview Image](README.png)
 
 ## Description
 This repository contains a Drag & Drop example to make a TODO List with React and Chakra UI.
